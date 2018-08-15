@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,53 +11,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:src="@drawable/sus"
-                />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@color/colorAccent"
+                android:padding="15dp"
+                android:text="BMI"
+                android:textSize="25dp" />
+
 
             <EditText
-                android:drawableLeft="@drawable/ic_action_user"
+                android:drawableLeft="@drawable/ic_action_height"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User Id"
+                android:hint="Height(cm)"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
 
-
             <EditText
-                android:drawableLeft="@drawable/ic_action_password"
-                android:inputType="textPassword"
+                android:drawableLeft="@drawable/ic_action_weight"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="Weight(kg)"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOGIN"
+                android:text="CALCULATE"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register New Account"
-                android:layout_gravity="end"
-                android:textColor="#00227b"
-                android:layout_marginRight="40dp"/>
 
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </android.support.constraint.ConstraintLayout>
