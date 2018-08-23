@@ -23,6 +23,7 @@
 
 
             <EditText
+                android:id="@+id/username"
                 android:paddingTop="20dp"
                 android:drawableLeft="@drawable/ic_action_user"
                 android:inputType="text"
@@ -33,6 +34,7 @@
                 android:layout_marginRight="40dp"/>
 
             <EditText
+                android:id="@+id/name"
                 android:drawableLeft="@drawable/ic_action_account"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -42,6 +44,7 @@
                 android:layout_marginRight="40dp"/>
 
             <EditText
+                android:id="@+id/age"
                 android:drawableLeft="@drawable/ic_action_age"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -51,6 +54,7 @@
                 android:layout_marginRight="40dp"/>
 
             <EditText
+                android:id="@+id/password"
                 android:drawableLeft="@drawable/ic_action_password"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
@@ -60,6 +64,7 @@
                 android:layout_marginRight="40dp"/>
 
             <Button
+                android:id="@+id/regis_regis_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="REGISTER NEW ACCOUNT"

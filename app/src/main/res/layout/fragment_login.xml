@@ -25,6 +25,7 @@
                 />
 
             <EditText
+                android:id="@+id/login_user_id"
                 android:drawableLeft="@drawable/ic_action_user"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -35,6 +36,7 @@
 
 
             <EditText
+                android:id="@+id/login_password"
                 android:drawableLeft="@drawable/ic_action_password"
                 android:inputType="textPassword"
                 android:layout_width="match_parent"
@@ -44,6 +46,7 @@
                 android:layout_marginRight="40dp"/>
 
             <Button
+                android:id="@+id/login_login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="LOGIN"

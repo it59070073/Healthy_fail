@@ -23,6 +23,7 @@
 
 
             <EditText
+                android:id="@+id/height"
                 android:drawableLeft="@drawable/ic_action_height"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -32,6 +33,7 @@
                 android:layout_marginRight="40dp"/>
 
             <EditText
+                android:id="@+id/weight"
                 android:drawableLeft="@drawable/ic_action_weight"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -41,6 +43,7 @@
                 android:layout_marginRight="40dp"/>
 
             <Button
+                android:id="@+id/bmi_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="CALCULATE"
