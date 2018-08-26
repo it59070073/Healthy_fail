@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class BmiFragment extends Fragment{
@@ -27,6 +28,7 @@ public class BmiFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
         Button bmiBtn = getView().findViewById(R.id.bmi_btn);
 
+
         bmiBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +44,15 @@ public class BmiFragment extends Fragment{
                             Toast.LENGTH_SHORT
                     ).show();
                     Log.d("BMI","FIELD NAME IS EMPTY");
+                }else {
+                    Log.d("BMI", "BMI is value");
+                    Float heightF = Float.parseFloat(heightInt)/100;
+                    Float weightF = Float.parseFloat(weightInt);
+                    Float text = weightF/(heightF*heightF);
+
+                    ((TextView) getView().findViewById(R.id.text)).setText(String.valueOf(text));
+
+
                 }
 
             }
