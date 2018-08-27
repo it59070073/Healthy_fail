@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/private/var/folders/q0/8m38dxx90xsbm1zyrtgckv7w0000gn/T/AppTranslocation/1FF92314-6D1B-4F76-928A-0D72E9A39FCB/d/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_lock_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/private/var/folders/q0/8m38dxx90xsbm1zyrtgckv7w0000gn/T/AppTranslocation/1FF92314-6D1B-4F76-928A-0D72E9A39FCB/d/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_vertical_align_bottom_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -33,7 +33,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_action_password" />
+                                      <entry key="outputName" value="ic_action_weight" />
                                     </map>
                                   </option>
                                 </PersistentState>
