@@ -18,49 +18,43 @@
                 android:layout_gravity="left"
                 android:background="@color/colorAccent"
                 android:padding="15dp"
-                android:text="Register"
+                android:text="Setup"
                 android:textSize="25dp" />
 
 
-            <EditText
-                android:id="@+id/email"
-                android:paddingTop="20dp"
-                android:drawableLeft="@drawable/ic_action_user"
-                android:inputType="textEmailAddress"
+            <Button
+                android:id="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="email"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"/>
+                android:text="Back"/>
+            //android:layout_marginLeft="40dp"
+            //android:layout_marginRight="40dp"/>
 
 
             <EditText
-                android:id="@+id/password"
-                android:drawableLeft="@drawable/ic_action_password"
-                android:inputType="textPassword"
+                android:id="@+id/height"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="password"
+                android:hint="Date"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
 
             <EditText
-                android:id="@+id/re-password"
-                android:drawableLeft="@drawable/ic_action_password"
-                android:inputType="textPassword"
+                android:id="@+id/weight"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="Weight(kg)"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
 
             <Button
-                android:id="@+id/regis_regis_btn"
+                android:id="@+id/save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="REGISTER NEW ACCOUNT"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"/>
+                android:text="Save"/>
+
 
 
         </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.pinpipo.healthy;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.BundleCompat;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFragment extends Fragment {
 
@@ -26,6 +33,14 @@ public class LoginFragment extends Fragment {
     @Override
     public void onActivityCreated (@Nullable Bundle savedInstanceState){
         super.onActivityCreated(savedInstanceState);
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance(); //เราเรียกใช้ firebase ที่เรียกในการ login หรือ register
+        final FirebaseUser mUser = mAuth.getCurrentUser(); //คือเมื่อ login ไว้แล้วแล้วจำหน้าไว้
+
+        if (mUser != null){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).commit();
+        }
+
+
         Button _loginBtn = getView().findViewById(R.id.login_login_btn);
         TextView regisTv = getView().findViewById(R.id.textView);
 
@@ -42,20 +57,47 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 EditText _userId = (EditText) getView().findViewById(R.id.login_user_id);
                 EditText _password = (EditText) getView().findViewById(R.id.login_password);
+
                 String _userIdStr = _userId.getText().toString();
                 String _passwordStr = _password.getText().toString();
-                if (_userIdStr.isEmpty() || _passwordStr.isEmpty()){
-                    Toast.makeText(
-                            getActivity(),"กรุณาระบุ user or password",
-                            Toast.LENGTH_SHORT
-                    ).show();
-                    Log.d("USER","USER OR PASSWORD IS EMPTY");
-                } else if (_userIdStr.equals("admin") && _passwordStr.equals("admin")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).commit();
-                    Log.d("USER","GOTO BMI");
-                } else {
-                    Log.d("USER", "INVALID USER NAME OR PASSWORD");
-                }
+
+                mAuth.signInWithEmailAndPassword(_userIdStr, _passwordStr).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        if (mUser.isEmailVerified() == true){
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).commit();
+                            Log.d("USER","GOTO BMI");
+                        }else{
+                            Toast.makeText(
+                                    getActivity(),"คุณยังไม่ได้ทำการยืนยัน email",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(
+                                getActivity(), e.getMessage(),//แม่ง show ข้อความให้เลย
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                    }
+                });
+
+//                if (_userIdStr.isEmpty() || _passwordStr.isEmpty()){
+//                    Toast.makeText(
+//                            getActivity(),"กรุณาระบุ user or password",
+//                            Toast.LENGTH_SHORT
+//                    ).show();
+//                    Log.d("USER","USER OR PASSWORD IS EMPTY");
+//                } else if (_userIdStr.equals("admin") && _passwordStr.equals("admin")){
+//                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new MenuFragment()).commit();
+//                    Log.d("USER","GOTO BMI");
+//                } else {
+//                    Log.d("USER", "INVALID USER NAME OR PASSWORD");
+//                }
             }
         });
 

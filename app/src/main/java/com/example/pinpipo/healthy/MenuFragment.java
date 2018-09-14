@@ -12,17 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 
 public class MenuFragment extends Fragment {
+
+    ArrayList<String> menu = new ArrayList<>();
 
     public MenuFragment(){ //เวลาย้อนกลับมันจะไม่เบิล
         menu.add("BMI");
         menu.add("Weight");
         menu.add("Setup");
+        menu.add("Logout");
     }
-
-    ArrayList<String> menu = new ArrayList<>();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -48,6 +51,30 @@ public class MenuFragment extends Fragment {
                             .replace(R.id.main_view, new BmiFragment())
                             .addToBackStack(null)
                             .commit();
+                }else if (menu.get(i).equals("Weight")){
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_view, new WeightFragment())
+                            .addToBackStack(null)
+                            .commit();
+
+                }else if (menu.get(i).equals("Setup")){
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_view, new WeightFormFragment())
+                            .addToBackStack(null)
+                            .commit();
+
+                }else if (menu.get(i).equals("Logout")){
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    mAuth.signOut(); //ป้องกันไม่ให้เกิด loop
+
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_view, new LoginFragment())
+                            .addToBackStack(null)
+                            .commit();
+
                 }
 
             }
